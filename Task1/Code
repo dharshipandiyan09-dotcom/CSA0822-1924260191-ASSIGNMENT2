@@ -1,0 +1,41 @@
+def subsidy_if(units, ration, elderly): 
+    results = [] 
+    if units <= 100: 
+        results.append("Full Subsidy") 
+    if 101 <= units <= 200 and ration: 
+        results.append("Partial Subsidy") 
+    if units > 200 and elderly: 
+        results.append("Special Subsidy") 
+    if not results: 
+        results.append("No Subsidy") 
+    return results 
+def subsidy_elif(units, ration, elderly): 
+    if units <= 100: 
+        return "Full Subsidy" 
+    elif 101 <= units <= 200: 
+        if ration: 
+            return "Partial Subsidy" 
+        else: 
+            return "No Subsidy" 
+    elif units > 200 and elderly: 
+        return "Special Subsidy" 
+    else: 
+        return "No Subsidy" 
+households = [ 
+    (80, True, False), 
+    (100, False, False), 
+    (101, True, False), 
+    (150, False, False), 
+    (200, True, False), 
+    (201, True, False), 
+    (250, False, True), 
+    (250, True, False) 
+] 
+for h in households: 
+    units, ration, elderly = h 
+    print("Units:", units) 
+    print("Separate if:", subsidy_if( 
+        units, ration, elderly)) 
+    print("If-elif-else:", subsidy_elif( 
+        units, ration, elderly)) 
+    print() 
