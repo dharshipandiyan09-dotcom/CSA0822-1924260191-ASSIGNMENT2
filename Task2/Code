@@ -1,0 +1,20 @@
+correct_otp = "123456" 
+security_answer = "blue" 
+entered_answer = "blue" 
+max_attempts = 3 
+if entered_answer == security_answer: 
+    max_attempts += 2 
+entries = [ 
+    "111111", "222222", "333333", 
+    "444444", "123456" 
+] 
+for attempt in range(max_attempts): 
+    otp = entries[attempt].strip() 
+    if not otp: 
+        continue 
+    if otp == correct_otp: 
+        print("OTP verified successfully.") 
+        break 
+    print("Incorrect OTP.") 
+else: 
+    print("Account locked for 30 minutes.") 
