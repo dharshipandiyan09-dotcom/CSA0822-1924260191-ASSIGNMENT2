@@ -1,1 +1,17 @@
+def ways_loop(n): 
+    if n <= 1: 
+        return 1 
+    previous = 1 
+    current = 1 
+    for i in range(2, n + 1): 
+        previous, current = ( 
+            current, 
+            previous + current 
+        ) 
+    return current 
+n = 1000 
+result = ways_loop(n) 
+print("Steps:", n) 
+print("Number of ways:", result) 
+print("Number of digits:", len(str(result))) 
 
